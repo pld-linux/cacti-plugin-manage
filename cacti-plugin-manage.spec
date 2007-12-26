@@ -21,29 +21,31 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Plugin for Cacti - This plugin allows you to automatically view your
 network by checking :
- - TCP Ports (all platforms which host TCP/IP services)
- - Services and Processes (for Win32 only)
- Up, down and reboot events :
- - can be immediatly sent to you by email or "net send"
- - are logged and available in Event Reporting
- Features:
-   Monitor TCP ports, windows services and processes for
-   multiple hosts.
-   Multiples views.
-   You can associate an image with your host.
-   Let you create Groups and Sites.
-   You can display only hosts in error.
-   Use AJAX.
-   Use overlib to display graphs.
-   Blink hostnames when a threshold is breaked. Use tresholds.
-   You can set cycle time delay between groups.
-   The time until the next graph change is displayed.
-   You can click objects to access Reporting.
-   Guest account can only view tab manage, not Reporting.
-   Can set permissions on who can view.
-   You can choose between SNMP, WMI (Vbs or Perl) and that i name 
-   "rrdtool" (it's the output from the poller).
-   You can make themes for images. Alerts by sound.
+- TCP Ports (all platforms which host TCP/IP services)
+- Services and Processes (for Win32 only)
+
+Up, down and reboot events :
+- can be immediatly sent to you by email or "net send"
+- are logged and available in Event Reporting
+
+Features:
+- Monitor TCP ports, windows services and processes for
+- multiple hosts.
+- Multiples views.
+- You can associate an image with your host.
+- Let you create Groups and Sites.
+- You can display only hosts in error.
+- Use AJAX.
+- Use overlib to display graphs.
+- Blink hostnames when a threshold is breaked. Use tresholds.
+- You can set cycle time delay between groups.
+- The time until the next graph change is displayed.
+- You can click objects to access Reporting.
+- Guest account can only view tab manage, not Reporting.
+- Can set permissions on who can view.
+- You can choose between SNMP, WMI (Vbs or Perl) and that i name
+- "rrdtool" (it's the output from the poller).
+- You can make themes for images. Alerts by sound.
 
 %description -l pl.UTF-8
 Wtyczka do Cacti -
@@ -54,7 +56,7 @@ Wtyczka do Cacti -
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{webcactipluginroot}
-cp -aRf * $RPM_BUILD_ROOT%{webcactipluginroot}
+cp -a * $RPM_BUILD_ROOT%{webcactipluginroot}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
