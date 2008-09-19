@@ -3,12 +3,12 @@
 Summary:	Plugin for Cacti - dashboard for Network Services
 Summary(pl.UTF-8):	Wtyczka do Cacti - panel z usługami sieciowymi
 Name:		cacti-plugin-manage
-Version:	0.5.1
-Release:	0.1
+Version:	0.6
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://gilles.boulon.free.fr/manage/%{namesrc}-%{version}.zip
-# Source0-md5:	baa4298d38b914590a10794d2ccf07d1
+# Source0-md5:	84f4b39e82620bcafa514fb59f67f223
 URL:		http://forums.cacti.net/about13827.html
 BuildRequires:	rpm-perlprov
 Requires:	cacti
