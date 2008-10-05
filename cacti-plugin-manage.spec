@@ -1,4 +1,4 @@
-%define		namesrc	manage
+%define		plugin	manage
 %include	/usr/lib/rpm/macros.perl
 Summary:	Plugin for Cacti - dashboard for Network Services
 Summary(pl.UTF-8):	Wtyczka do Cacti - panel z usługami sieciowymi
@@ -7,7 +7,7 @@ Version:	0.6
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://gilles.boulon.free.fr/manage/%{namesrc}-%{version}.zip
+Source0:	http://gilles.boulon.free.fr/manage/%{plugin}-%{version}.zip
 # Source0-md5:	84f4b39e82620bcafa514fb59f67f223
 URL:		http://forums.cacti.net/about13827.html
 BuildRequires:	rpm-perlprov
@@ -16,7 +16,7 @@ Requires:	cacti-plugin-thold
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		webcactipluginroot /usr/share/cacti/plugins/%{namesrc}
+%define		plugindir /usr/share/cacti/plugins/%{plugin}
 
 %description
 This Cacti plugin allows you to automatically view your network by
@@ -84,12 +84,12 @@ Możliwości:
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{webcactipluginroot}
-cp -a * $RPM_BUILD_ROOT%{webcactipluginroot}
+install -d $RPM_BUILD_ROOT%{plugindir}
+cp -a . $RPM_BUILD_ROOT%{plugindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{webcactipluginroot}
+%{plugindir}
