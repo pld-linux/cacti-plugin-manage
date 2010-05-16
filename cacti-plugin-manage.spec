@@ -11,6 +11,7 @@ Source0:	http://gilles.boulon.free.fr/manage/%{plugin}-%{version}.zip
 # Source0-md5:	84f4b39e82620bcafa514fb59f67f223
 URL:		http://forums.cacti.net/about13827.html
 BuildRequires:	rpm-perlprov
+BuildRequires:	unzip
 Requires:	cacti
 Requires:	cacti-plugin-thold
 BuildArch:	noarch
