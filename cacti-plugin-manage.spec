@@ -1,23 +1,31 @@
+# TODO
+# - bunch of bundled java jars (jta, sshtermapplet)
+# - perl deps optional? required?
 %define		plugin	manage
-%include	/usr/lib/rpm/macros.perl
+%define		php_min_version 5.0.0
+%include	/usr/lib/rpm/macros.php
 Summary:	Plugin for Cacti - dashboard for Network Services
 Summary(pl.UTF-8):	Wtyczka do Cacti - panel z usługami sieciowymi
-Name:		cacti-plugin-manage
-Version:	0.6
+Name:		cacti-plugin-%{plugin}
+Version:	0.6.2
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://gilles.boulon.free.fr/manage/%{plugin}-%{version}.zip
-# Source0-md5:	84f4b39e82620bcafa514fb59f67f223
-URL:		http://forums.cacti.net/about13827.html
-BuildRequires:	rpm-perlprov
+Source0:	http://docs.cacti.net/_media/userplugin:%{plugin}-%{version}.zip
+# Source0-md5:	70b64092a80114b4a9d36be0f1988d47
+URL:		http://docs.cacti.net/userplugin:manage
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	unzip
-Requires:	cacti
-Requires:	cacti-plugin-thold
+Requires:	cacti >= 0.8.7g
+Requires:	cacti(pia) >= 2.8
+Requires:	cacti-plugin-settings >= 0.7
+Requires:	php-common >= 4:%{php_min_version}
+Suggests:	cacti-plugin-thold
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		plugindir /usr/share/cacti/plugins/%{plugin}
+%define		cactidir		/usr/share/cacti
+%define		plugindir		%{cactidir}/plugins/%{plugin}
 
 %description
 This Cacti plugin allows you to automatically view your network by
@@ -81,16 +89,23 @@ Możliwości:
 - dźwiękowe alarmy.
 
 %prep
-%setup -q -c
+%setup -qc
+mv %{plugin}/#INSTALL.txt INSTALL
+mv %{plugin}/#readme-*.txt README
+
+# bad os
+rm %{plugin}/*.bat
+rm %{plugin}/*.exe
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{plugindir}
-cp -a . $RPM_BUILD_ROOT%{plugindir}
+cp -a %{plugin}/* $RPM_BUILD_ROOT%{plugindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc INSTALL README
 %{plugindir}
