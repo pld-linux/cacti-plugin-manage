@@ -3,7 +3,6 @@
 # - perl deps optional? required?
 %define		plugin	manage
 %define		php_min_version 5.0.0
-%include	/usr/lib/rpm/macros.php
 Summary:	Plugin for Cacti - dashboard for Network Services
 Summary(pl.UTF-8):	Wtyczka do Cacti - panel z usługami sieciowymi
 Name:		cacti-plugin-%{plugin}
